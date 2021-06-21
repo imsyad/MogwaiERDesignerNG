@@ -1204,5 +1204,9 @@
             <Text lang="de">Kommentar bearbeiten</Text>
             <Text lang="en">Edit Comment</Text>
         </Entry>
+        <Entry id="CREATEANEWTABLE">
+            <Text lang="de">Erstellen Sie eine neue Tabelle</Text>
+            <Text lang="en">Create a new table</Text>
+        </Entry>
     </Bundle>
 </Resource>

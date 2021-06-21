@@ -32,6 +32,7 @@ import de.erdesignerng.model.SubjectArea;
 import de.erdesignerng.model.Table;
 import de.erdesignerng.model.View;
 import de.erdesignerng.visual.IconFactory;
+import de.erdesignerng.visual.jgraph.cells.TableCell;
 import de.mogwai.common.client.looks.UIInitializer;
 import de.mogwai.common.client.looks.components.DefaultButton;
 import de.mogwai.common.client.looks.components.DefaultLabel;
@@ -58,6 +59,8 @@ import javax.swing.tree.DefaultTreeModel;
 import javax.swing.tree.TreeCellRenderer;
 import javax.swing.tree.TreeNode;
 import javax.swing.tree.TreePath;
+import javax.vecmath.Point2d;
+
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Component;
@@ -69,6 +72,7 @@ import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.awt.geom.Point2D;
 import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -889,6 +893,21 @@ public class OutlineComponent extends DefaultPanel implements
                     .getPath()), false));
 
 			aMenu.add(theCollapseAllItem);
+			aMenu.addSeparator();
+		
+			Table theTable = new Table();
+			Point2D location = new Point2D.Double(0, 0);
+
+			JMenuItem theCreateNewTable = new JMenuItem();
+			theCreateNewTable.setText(getResourceHelper().getFormattedText(
+				ERDesignerBundle.CREATEANEWTABLE));
+			theCreateNewTable.addActionListener(new EditTableCommand(theTable) {
+				@Override
+				protected void beforeRefresh() {
+					ERDesignerComponent.getDefault().commandCreateTable(theTable, location);
+				}
+			});
+			aMenu.add(theCreateNewTable);
 			aMenu.addSeparator();
 		}
 
