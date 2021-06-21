@@ -58,6 +58,17 @@
         <defaultGoal>package</defaultGoal>
         <plugins>
             <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>exec-maven-plugin</artifactId>
+                <version>3.8.1</version>
+                <configuration>
+                    <mainClass>de.erdesignerng.visual.ERDesigner</mainClass>
+                    <arguments>
+                        <argument>xxx</argument>
+                    </arguments>
+                </configuration>
+            </plugin>
+            <plugin>
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>3.8.1</version>
                 <configuration>
